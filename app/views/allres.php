@@ -28,19 +28,19 @@ if (isset($_POST['reserve'])) {
                     </a>
                 </div>
                 <div>
-                    <h1><i class="fas fa-paper-plane"></i> All Reservations</h1>
+                    <h1><i class="fas fa-paper-plane"></i> Toutes les réservations</h1>
                 </div>
                 <table class="table table-hover">
                     <thead>
                         <tr>
                             <th scope="col"></th>
                             <th scope="col"><i class="fa fa-id-badge"></i> Reservation ID</th>
-                            <th scope="col"><i class="fa fa-plane-departure"></i> Origin</th>
+                            <th scope="col"><i class="fa fa-location-arrow"></i> Origin</th>
                             <th scope="col"><i class="fa fa-map-marked-alt"></i> Destination</th>
                             <th scope="col"><i class="fa fa-clock"></i> Departure Time</th>
                             <th scope="col"><i class="fa fa-id-card-alt"></i> Customer</th>
                             <th scope="col"><i class="fa fa-passport"></i> Flight ID</th>
-                            <th scope="col"><i class="fa fa-location-arrow"></i> Flight Type</th>
+                            <th scope="col"><i class="fa fa-plane-departure"></i> Flight Type</th>
                             <th scope="col"></th>
                         </tr>
                     </thead>

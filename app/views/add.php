@@ -11,7 +11,7 @@
         <div class="card">
             <div class="card-header">Add a Flight:</div>
             <div class="card-body bg-light">
-                <a href="<?php echo BASE_URL; ?>" class="btn btn-sm btn-secondary mr-2 mb-2">
+                <a href="<?php echo BASE_URL; ?>dashadmin" class="btn btn-sm btn-secondary mr-2 mb-2">
                     <i class="fas fa-home"></i>
                 </a>
                 <a href="<?php echo BASE_URL; ?>logout" title="Logout" class="btn btn-outline-primary float-end">

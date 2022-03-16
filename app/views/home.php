@@ -28,14 +28,7 @@ if(isset($_POST['find'])){
                     </a>
                 </li>
                 </li>
-     
-                <!-- <li class="nav-item">
-                    <a class="nav-link" href="<?php echo BASE_URL;?>dashadmin">Passerelle d'administration</a>
-                </li> -->
                 <li class="nav-item dropdown">
-                    <a class="nav-link" href="<?php echo BASE_URL;?>dashadmin">Passerelle d'administration</a>
-
-
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="<?php echo BASE_URL;?>reserve"> Vos réservations</a>
@@ -64,21 +57,21 @@ if(isset($_POST['find'])){
 <div class="container">
     <div class="row">
         <div class="col-md-10 mx-auto">
+            <?php // include('./views/includes/alerts.php');?>
             <div class="card">
                 <div class="card-body bg-light">
                     <div class="table-responsive">
-
                         <table class="table table-hover ">
                             <thead>
                                 <tr>
                                     <th scope="col"></th>
-                                    <th scope="col"><i class="fa fa-plane-departure"></i> Origin</th>
+                                    <th scope="col"><i class="fa fa-plane-departure"></i> Origine</th>
                                     <th scope="col"><i class="fa fa-map-marked-alt"></i> Destination</th>
-                                    <th scope="col"><i class="fa fa-clock"></i> Departure Time</th>
-                                    <th scope="col"><i class="fa fa-clock"></i> Return Time</th>
-                                    <th scope="col"><i class="fa fa-chair"></i> Seats</th>
-                                    <th scope="col"><i class="fa fa-location-arrow"></i> Flight Type</th>
-                                    <th scope="col"></th>
+                                    <th scope="col"><i class="fa fa-clock"></i> Heure de départ</th>
+                                    <th scope="col"><i class="fa fa-clock"></i> Heure de retour</th>
+                                    <th scope="col"><i class="fa fa-chair "></i> Places</th>
+                                    <th scope="col"><i class="fa fa-location-arrow"></i> Type de vol</th>
+                                    <th scope="col">Reserver</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -100,7 +93,7 @@ if(isset($_POST['find'])){
                                     ?>
                                     </td>
                                     <td class="d-flex flex-row">
-                                        <form method="post" class="me-2">
+                                        <form method="post"  class="me-2">
                                             <input type="text" hidden name="id" value="<?php echo $flight['id']; ?>">
                                             <input type="text" hidden name="origin"
                                                 value="<?php echo $flight['origin']; ?>">
@@ -112,8 +105,8 @@ if(isset($_POST['find'])){
                                                 value="<?php echo $flight['return_time']; ?>">
                                             <input type="text" hidden name="flighttype"
                                                 value="<?php echo $flight['flighttype']; ?>">
-                                            <button class="btn btn btn-info" type="submit" name="reserve"><i
-                                                    class="fa fa-plane-departure"></i> Reserve Now</button>
+                                            <button class="btn btn btn-info" type="submit" name="reserve">
+                                            <i class='fa fa-fighter-jet'></i> Réservez maintenant</button>
                                         </form>
                                     </td>
                                 </tr>

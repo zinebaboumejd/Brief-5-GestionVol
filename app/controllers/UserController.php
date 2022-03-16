@@ -55,4 +55,13 @@ class UserController {
 		session_destroy();
 	}
 
+
+    public function getResvation($id){
+        $res = user ::getOne($id);
+        return $res;
+
+
+    }
+
+
 }

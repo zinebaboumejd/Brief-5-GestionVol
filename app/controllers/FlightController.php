@@ -103,27 +103,32 @@ class FlightController{
             );
             $result = Flight::reserve($data);
             if($result === 'ok'){
-                    Session::set('success', 'Flight reserved');
-                    Redirect::to('home');
+                    Session::set('success', 'Vol réservé');
+                    Redirect::to('reserve');
             }else{
                echo $result ;
             }
         }
     }
     public function addPassenger(){
-        if(isset($_POST['addpass'])){
+        // die(var_dump($_POST));
+        if(isset($_POST['submit'])){
             $data = array(
                 'user_id' => $_SESSION['id'],
-                'reservation_id' => $_POST['res_id'],
-                'fullname' => $_POST['passfullname'],
+                'idres' => $_POST['idres'],
+                'fullname' => $_POST['fullname'],
+                'lastname' => $_POST['lastname'],
+                'birthday' => $_POST['birthday'],
             );
+            // die(var_dump($_SESSION['reservation_id']));
             $result = Flight::addpass($data);
-            if($result === 'ok'){
-                Session::set('success', 'Passenger added');
-                Redirect::to('home');
-            }else{
-               echo $result ;
-            }
+          
         }
+    }   
+   
+    public function AfficherPas($id){
+        $flights = Flight::getpassanger($id);
+        // die(var_dump($flights));
+        return $flights;
     }
 }

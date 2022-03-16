@@ -1,8 +1,8 @@
 <?php 
+require_once './views/includes/alerts.php';
 require_once './views/includes/header.php';
 require_once './autoload.php';
 require_once './controllers/HomeController.php';
-require_once './views/includes/alerts.php';
 
 $home = new HomeController();
 

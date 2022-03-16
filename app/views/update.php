@@ -6,10 +6,12 @@
     Redirect::to('home');
 }
 	if(isset($_POST['submit'])){
+        var_dump($_POST);
 		$exitFlight = new FlightController();
 		$exitFlight->updateFlight();
 	}
 ?>
+
 
 <div class="container">
     <div class="row">
@@ -25,7 +27,7 @@
                         <i class="fas fa-user"></i> <?php echo $_SESSION['username'];?> | Logout
                     </a>
                 </div>
-                <form method="post">
+                <form method="post" >
                     <div class="form-group">
                         <label for="origin">Origin</label>
                         <input type="text" name="origin" class="form-control" placeholder="Origin"
@@ -37,6 +39,7 @@
                         value="<?php echo $flight->destination; ?>">
                         <input type="hidden" name="id" value="<?php echo $flight->id;?>">
                     </div>
+                    <?php  ?>
                     <div class="form-group">
                         <label for="dep_time">Departure Date/time:</label>
                         <input type="datetime-local" name="dep_time" class="form-control" placeholder="Departure Date/Time"

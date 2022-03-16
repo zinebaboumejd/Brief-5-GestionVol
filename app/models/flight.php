@@ -23,11 +23,12 @@ class Flight
                 reservation.flight_type
             FROM
                 reservation
-            INNER JOIN users ON reservation.user_id = users.id;');
+            INNER JOIN users ON reservation.user_id = users.id
+            ORDER BY  reservation.id');
             $stmt->execute();
             return $stmt->fetchAll();
         } else {
-            $stmt = DB::connect()->prepare('SELECT * FROM reservation WHERE user_id=:user_id');
+            $stmt = DB::connect()->prepare('SELECT * FROM reservation WHERE user_id=:user_id ');
             $stmt->bindParam(':user_id', $user_id);
             $stmt->execute();
             return $stmt->fetchAll();
@@ -65,15 +66,15 @@ class Flight
     }
     static public function update($data)
     {
-        $stmt = DB::connect()->prepare('UPDATE flight SET origin=:origin, destination=:destination, dep_time=:dep_time, return_time=:return_time, seats=:seats, flighttype=:flightype WHERE id=:id');
-        $stmt->bindParam(':id', $data['id']);
+        $stmt = DB::connect()->prepare('UPDATE flight SET origin=:origin, destination=:destination, dep_time=:dep_time, return_time=:return_time, seats=:seats, flighttype=:flighttype WHERE id=:id');
+       $stmt->bindParam(':id', $a, (int)($data['id']));
         $stmt->bindParam(':origin', $data['origin']);
         $stmt->bindParam(':destination', $data['destination']);
         $stmt->bindParam(':dep_time', $data['dep_time']);
         $stmt->bindParam(':return_time', $data['return_time']);
-        $stmt->bindParam(':seats', $data['seats']);
+        $stmt->bindParam(':seats', $a, (int)($data['seats']));
         $stmt->bindParam(':flighttype', $data['flighttype']);
-        
+
         if ($stmt->execute()) {
             return 'ok';
         } else {
@@ -132,7 +133,8 @@ class Flight
         $stmt->bindParam(':origin', $data['origin']);
         $stmt->bindParam(':destination', $data['destination']);
         $stmt->bindParam(':dep_time', $data['dep_time']);
-        $stmt->execute();
+
+     $stmt->execute();
 
         if ($data['flighttype'] === 'Round Trip') {
             $stmt = DB::connect()->prepare('INSERT INTO reservation (user_id, flight_id, flight_type, origin, destination, dep_time) VALUES (:user_id,:flight_id,:flight_type,:origin,:destination,:dep_time)');
@@ -145,14 +147,39 @@ class Flight
             $stmt->execute();
         }
     }
-    static public function addpass($data)
-    {
-        for ($i = 0; $i < count($data['fullname']); $i++) {
-            $stmt = DB::connect()->prepare('INSERT INTO passenger (user_id, reservation_id, fullname) VALUES (:user_id,:reservation_id,:fullname)');
-            $stmt->bindParam(':user_id', $data['user_id']);
-            $stmt->bindParam(':reservation_id', $data['reservation_id']);
-            $stmt->bindParam(':fullname', $data['fullname'][$i]);
-            $stmt->execute();
+    static public function       addpass($data)
+    { 
+        // die(var_dump($data['lastname']));   
+        // die(var_dump($params));
+        $stmt = DB::connect()->prepare('INSERT INTO passenger
+         (user_id, reservation_id, fullname,lastname,birthday) VALUES (?,?,?,?,?)');
+       $params =array($data['user_id'],$data['idres'],$data['fullname'],$data['lastname'],$data['birthday']);
+        $stmt->bindParam(1, $data['user_id']);
+        $stmt->bindParam(2, $data['idres']);
+        $stmt->bindParam(3, $data['fullname']);
+        $stmt->bindParam(4, $data['lastname'] );
+        $stmt->bindParam(5, $data['birthday']);
+        if($stmt->execute($params)){
+             return 'ys';
+           // die(var_dump('ys'));
         }
+        else  //die(var_dump('no'));
+        return 'no';
+
     }
+
+    static public function getpassanger($user_id) {
+        // WHERE idres=:reservation_id
+        // die(var_dump($user_id));
+        $stmt = DB::connect()->prepare('SELECT * FROM passenger WHERE user_id=:user_id ');
+        $stmt->bindParam(':user_id', $user_id);
+        $stmt->execute();
+   $res =$stmt->fetchAll(PDO::FETCH_ASSOC);
+       return $res;
+        // die(var_dump($res));
+    }    
+
+
+
 }
+

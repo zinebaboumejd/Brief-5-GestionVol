@@ -31,20 +31,9 @@ if (isset($_POST['find'])) {
                     <i class="fas fa-plus"></i> Ajouter un nouveau vol
                 </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="<?php echo BASE_URL;?>dashadmin">Passerelle d'administration</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <!-- <a class="nav-link" href="<?php echo BASE_URL;?>dashadmin">Passerelle d'administration</a> -->
-
-
-                </li>
                 <!-- <li class="nav-item">
-                    <a class="nav-link" href="<?php echo BASE_URL;?>reserve"> Vos réservations</a>
+                    <a class="nav-link" href="<?php echo BASE_URL;?>dashadmin">Passerelle d'administration</a>
                 </li> -->
-                <li class="nav-item">
-                    <a href="<?php echo BASE_URL; ?>home" class="nav-link" title="Admin gateway"> Back Home</a>
-                </li>
             </ul>
             <form class="d-flex float-start me-4">
                 <input class="form  me-2" type="search" placeholder="Search" aria-label="Search">
@@ -86,12 +75,12 @@ if (isset($_POST['find'])) {
                         <thead>
                             <tr>
                                 <th scope="col"><i class="fa fa-passport"></i> ID</th>
-                                <th scope="col"><i class="fa fa-plane-departure"></i> Origine</th>
+                                <th scope="col"><i class="fa fa-location-arrow"></i> Origine</th>
                                 <th scope="col"><i class="fa fa-map-marked-alt"></i> Destination</th>
                                 <th scope="col"><i class="fa fa-clock"></i> Temps de départ</th>
                                 <th scope="col"><i class="fa fa-clock"></i>Temps de révision </th>
                                 <th scope="col"><i class="fa fa-chair"></i> Places</th>
-                                <th scope="col"><i class="fa fa-location-arrow"></i> Type de vol</th>
+                                <th scope="col"><i class="fa fa-plane-departure"></i> Type de vol</th>
                                 <th scope="col"></th>
                             </tr>
                         </thead>

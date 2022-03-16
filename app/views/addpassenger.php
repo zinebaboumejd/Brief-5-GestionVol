@@ -1,21 +1,33 @@
 <?php
-if (isset($_POST['id'])) {
+ if (isset($_POST['id'])) { 
+    // die(var_dump($_POST['id']));
     $exitFlight = new FlightController();
     $flight = $exitFlight->getOneFlight();
 } else {
-    Redirect::to('home');
+    // Redirect::to('home');
 }
-if (isset($_POST['addpass'])) {
+$id=$_SESSION['id'];
+$resvation = new UserController();
+$res=$resvation->getResvation($id);
+
+if (isset($_POST['submit'])) {
+    // die(var_dump($_POST['lastname']));
     $addPassenger = new FlightController();
     $addPassenger->addPassenger();
 }
+//  die(var_dump($_POST['idres']));
+
+$data = new FlightController();
+$passangers = $data->AfficherPas($id);
+// die(var_dump($passangers));
+
 ?>
 <div class="container">
         <div class="row">
             <div class="col-md-8 mx-auto">
                 <div class="card">
                     <div class="card-header">
-                        <h1>Add Passengers</h1>
+                        <h1>Ajouter des passagers</h1>
                     </div>
                     <div class="card-body bg-light">
                         <div>
@@ -26,17 +38,46 @@ if (isset($_POST['addpass'])) {
                                 <i class="fas fa-user"></i> <?php echo $_SESSION['username']; ?> | Logout
                             </a>
                         </div>
-                            <div class="form-group">
-                                <label for="fname">Please enter your passenger's Full name</label>
-                                <form method="post" id="pass_form">
-                                    <input type="text" hidden value="<?php echo $_SESSION['id'] ?>" name="user_id">
-                                    <input type="text" hidden value="<?php echo $_POST['id'] ?>" name="res_id">
-                                </form>
-                            </div>
                         <div class="form-group">
-                           <button form="pass_form" type="submit" class="btn btn-primary mt-3" name="addpass">Add passenger to flight</button>
-                          <button type="submit" class="btn btn-primary mt-3" id="pluspass" name="add1pass"><i class="fa fa-plus"></i></button>
+                                <!-- <label class="text-white" for="fname">Please enter your passenger's Full name and his/her birthday</label> -->
+                                <form method="POST" action="addpassenger">
+                                    <input type="text" hidden name="user_id" value="<?php  echo $id ; ?>">
+                                    <input type="text"  name="fullname" class="form-control mb-4 col-md-6" placeholder="Prenom">
+                                    <input type="text"  name="lastname" class="form-control mb-4 col-md-6" placeholder="Nom">
+                                    <input type="date" class="form-control mb-4 col-md-6" name="birthday" placeholder="Date de naissance" >
+                                    <input type="hidden" name="idres" value="<?=$res->id ?>">
+                                    <button type="submit" class="btn btn-primary mt-3" name="submit">Ajouter un passager au vol</button>
+                                </form>
+                                <div class="table-responsive">
+                        <table class="table table-success table-striped table-hover mt-4">
+                            <thead>
+                                <tr>
+                                    <th scope="col"></th>
+                                    <th scope="col"> Client </th>
+                                    <th scope="col">passanger </th>
+                                    <th scope="col">Nom</th>
+                                    <th scope="col">Prenom</th>
+                                    <th scope="col">Date de naissance</th>
+                                    
+                                </tr>
+                            </thead>
+                                <tbody>
+                                <?php foreach ($passangers as $passanger) : ?>
+                                <tr>
+                                    <th></th>
+                                    <th scope="row" ><?php echo $passanger['user_id']; ?></th>
+                                    <th scope="row" ><?php echo $passanger['reservation_id']; ?></th>
+                                    <td><?php echo $passanger['fullname']; ?></td>
+                                    <td><?php echo $passanger['lastname']; ?></td>
+                                    <td><?php echo $passanger['birthday']; ?></td>
+                                </tr>
+                                <?php endforeach ?>
+                            </tbody>
+                            </div>
+
+                        <div class="form-group">
                     </div>
+                    
                 </div>
             </div>
         </div>

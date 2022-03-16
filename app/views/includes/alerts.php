@@ -9,4 +9,7 @@
     if(isset($_COOKIE['info'])){
         echo '<div class ="alert alert-info">'.$_COOKIE['info'].'</div>';
     }
+    if(isset($_COOKIE['valider'])){
+        echo '<div class="alert alert-info">'.$_COOKIE['valider'].'</div>';
+    }
 ?>
