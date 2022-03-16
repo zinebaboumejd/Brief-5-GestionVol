@@ -16,8 +16,10 @@ if(isset($_SESSION['logged']) && $_SESSION['logged'] === true){
         }else{
             include('views/includes/404.php');
         }
-    }else{
+    }else if ($_SESSION['role'] == 0) {
         $home->index('home');
+    } else if ($_SESSION['role'] == 1) {
+        $home->index('dashadmin');
     }
     require_once './views/includes/footer.php';
         

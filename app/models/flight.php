@@ -117,8 +117,9 @@ class Flight
             $query = 'SELECT * FROM flight WHERE origin LIKE ?';
             $stmt = DB::connect()->prepare($query);
             $stmt->execute(array('%' . $search . '%'));
-            // return $flights->fetchAll();
-        } catch (PDOException $ex) {
+           $flight=$stmt->fetchAll();
+            return $flight;
+                } catch (PDOException $ex) {
             echo 'error' . $ex->getMessage();
         }
     }

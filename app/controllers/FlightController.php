@@ -23,8 +23,9 @@ class FlightController{
     public function findflights(){
         if(isset($_POST['search'])){
             $data = array('search' => $_POST['search']);
-        };
+        }
         $flights = Flight::searchflight($data);
+        // die(var_dump($flights));
         return $flights;
     }
     public function addflight(){
@@ -60,7 +61,7 @@ class FlightController{
             $result = Flight::update($data);
             if($result === 'ok'){
                 Session::set('success', 'Flight Updated');
-                    Redirect::to('update');
+                    Redirect::to('dashadmin');
             }else{
                echo $result ;
             }

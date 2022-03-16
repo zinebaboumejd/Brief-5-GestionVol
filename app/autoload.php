@@ -2,7 +2,7 @@
 
 session_start();
 
-require_once './bootstrap.php';
+require_once './url.php';
 
 spl_autoload_register('autoload');
 

@@ -68,7 +68,7 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <button type="submit" class="btn btn-primary mt-3" name="submit">Add</button>
+                        <button type="submit" class="btn btn-primary mt-3" name="submit">Modifer</button>
                     </div>
 
                 </form>

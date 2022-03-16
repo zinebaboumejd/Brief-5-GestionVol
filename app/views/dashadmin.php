@@ -12,7 +12,7 @@ if (isset($_POST['find'])) {
     $flights = $data->getAllFlights();
 }
 ?>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
     <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,9 +36,8 @@ if (isset($_POST['find'])) {
                 </li> -->
             </ul>
             <form class="d-flex float-start me-4">
-                <input class="form  me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-primary" type="submit" name="search"><i
-                        class="fas fa-search"></i></button>
+                <input class="form  me-2" type="search" name="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-primary" type="submit" name="find"><i class="fas fa-search"></i></button>
             </form>
             <div class=" float-end mt-2">
 
