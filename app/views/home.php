@@ -59,6 +59,7 @@ if(isset($_POST['find'])){
         <div class="col-md-10 mx-auto">
             <?php // include('./views/includes/alerts.php');?>
             <div class="card">
+            <?php include('./views/includes/alerts.php'); ?>
                 <div class="card-body bg-light">
                     <div class="table-responsive">
                         <table class="table table-hover ">

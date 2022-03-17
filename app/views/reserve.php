@@ -11,6 +11,7 @@
     }
     
 ?>
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -57,7 +58,9 @@
     <div class="row">
         <div class="col-md-8 mx-auto"></div>
         <div class="card">
-                    <table class="table table-hover">
+            <?php include('./views/includes/alerts.php'); ?>
+            <div class="table-responsive">
+                    <table class="table table-hover ">
                         <thead>
                             <tr>
                                 <th scope="col"></th>
@@ -112,6 +115,7 @@
                             <?php endforeach ?>
                         </tbody>
                     </table>
+                    </div>
             </div>
         </div>
     </div>

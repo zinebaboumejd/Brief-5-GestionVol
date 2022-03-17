@@ -26,6 +26,8 @@ $passangers = $data->AfficherPas($id);
         <div class="row">
             <div class="col-md-8 mx-auto">
                 <div class="card">
+                <?php include('./views/includes/alerts.php'); ?>
+
                     <div class="card-header">
                         <h1>Ajouter des passagers</h1>
                     </div>

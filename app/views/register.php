@@ -18,6 +18,7 @@
     <div class="row">
         <div class="col-md-8 mx-auto"></div>
         <div class="card ">
+        <?php include('./views/includes/alerts.php'); ?>
         <div class="card-header bg-primary">
         <h3 class="text-center text-white"><i class="fa fa-user-plus"></i> Register</h3>
         </div>

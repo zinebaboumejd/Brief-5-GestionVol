@@ -57,6 +57,8 @@ if (isset($_POST['find'])) {
     <div class="row">
         <div class="col-md-8 mx-auto"></div>
         <div class="card">
+        <?php include('./views/includes/alerts.php'); ?>
+
             <div class="card-body bg-light">
 
                 <h2 class="mb-4"><i class="fa fa-user-shield"></i> Tableau de bord administrateur</h2>
@@ -78,7 +80,7 @@ if (isset($_POST['find'])) {
                                 <th scope="col"><i class="fa fa-map-marked-alt"></i> Destination</th>
                                 <th scope="col"><i class="fa fa-clock"></i> Temps de départ</th>
                                 <th scope="col"><i class="fa fa-clock"></i>Temps de révision </th>
-                                <th scope="col"><i class="fa fa-chair"></i> Places</th>
+                                <!-- <th scope="col"><i class="fa fa-chair"></i> Places</th> -->
                                 <th scope="col"><i class="fa fa-plane-departure"></i> Type de vol</th>
                                 <th scope="col"></th>
                             </tr>
@@ -91,7 +93,7 @@ if (isset($_POST['find'])) {
                                 <td><?php echo $flight['destination']; ?></td>
                                 <td><?php echo $flight['dep_time']; ?></td>
                                 <td><?php echo $flight['return_time'] ?></td>
-                                <td><?php echo $flight['seats']; ?></td>
+                                <!-- <td><?php echo $flight['seats']; ?></td> -->
                                 <td>
                                     <?php echo $flight['flighttype'] == "One Way"
                                         ?

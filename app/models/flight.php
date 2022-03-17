@@ -66,13 +66,13 @@ class Flight
     }
     static public function update($data)
     {
-        $stmt = DB::connect()->prepare('UPDATE flight SET origin=:origin, destination=:destination, dep_time=:dep_time, return_time=:return_time, seats=:seats, flighttype=:flighttype WHERE id=:id');
+        $stmt = DB::connect()->prepare('UPDATE flight SET origin=:origin, destination=:destination, dep_time=:dep_time, return_time=:return_time, flighttype=:flighttype WHERE id=:id');
        $stmt->bindParam(':id', $a, (int)($data['id']));
         $stmt->bindParam(':origin', $data['origin']);
         $stmt->bindParam(':destination', $data['destination']);
         $stmt->bindParam(':dep_time', $data['dep_time']);
         $stmt->bindParam(':return_time', $data['return_time']);
-        $stmt->bindParam(':seats', $a, (int)($data['seats']));
+        // $stmt->bindParam(':seats', $a, (int)($data['seats']));
         $stmt->bindParam(':flighttype', $data['flighttype']);
 
         if ($stmt->execute()) {

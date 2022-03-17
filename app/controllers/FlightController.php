@@ -55,7 +55,7 @@ class FlightController{
                 'destination' => $_POST['destination'],
                 'dep_time' => $_POST['dep_time'],
                 'return_time' => $_POST['return_time'],
-                'seats' => $_POST['seats'],
+                // 'seats' => $_POST['seats'],
                 'flighttype' => $_POST['flighttype'],
             );
             $result = Flight::update($data);

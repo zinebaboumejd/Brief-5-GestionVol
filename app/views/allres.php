@@ -18,6 +18,8 @@ if (isset($_POST['reserve'])) {
     <div class="row">
         <div class="col-md-8 mx-auto"></div>
         <div class="card">
+        <?php include('./views/includes/alerts.php'); ?>
+
             <div class="card-body bg-light">
                 <div>
                     <a href="<?php echo BASE_URL; ?>dashadmin" class="btn btn btn-secondary mr-2 mb-2">

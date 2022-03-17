@@ -17,6 +17,7 @@
     <div class="row">
         <div class="col-md-8 mx-auto"></div>
         <div class="card">
+        <?php include('./views/includes/alerts.php'); ?>
             <div class="card-header"><h1>Update Flight Information:</h1></div>
             <div class="card-body bg-light">
                 <div>
@@ -50,11 +51,11 @@
                         <input type="datetime-local" name="return_time" class="form-control" placeholder="Return Date/Time"
                         value="<?php echo $flight->return_time; ?>">
                     </div>
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label for="seats">Seats</label>
                         <input type="number" min="1" max="400" name="seats" class="form-control" placeholder="Seats"
                         value="<?php echo $flight->seats; ?>">
-                    </div>
+                    </div> -->
                     <div class="form-group">
                         <label for="flighttype">Flight type</label>
                         <select class="form-control" name="flighttype">
